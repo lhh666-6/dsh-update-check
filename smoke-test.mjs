@@ -4,7 +4,7 @@ process.on('unhandledRejection', (e) => { console.log('UNHANDLED:', e instanceof
 const fs = await import('node:fs/promises')
 const statePath = process.env.USERPROFILE + '/.dsh/update-check-plus/state.json'
 const ctx = new Context()
-apply(ctx, { intervalHours: 9999, desktopRepoPath: 'D:/Claude_Design/deepseek-harness-desktop' })
+apply(ctx, { intervalHours: 9999, desktopRepoPath: process.env.DSH_DESKTOP_REPO ?? '' })
 console.log('plugin applied, waiting 30s...')
 setTimeout(async () => {
   try { console.log((await fs.readFile(statePath, 'utf8')).slice(0, 2000)) } catch (e) { console.log('read fail', e.message) }
