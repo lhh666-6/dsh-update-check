@@ -1,0 +1,9 @@
+# dsh-update-check bundle patch: one dual-face Host row.
+# The `insert` entry appends this row to the composed loader tree. The row's
+# package default export is the Host plugin; its `dsh.client` manifest
+# (package.json) makes the SAME entry discoverable to the Web client module
+# graph, so no separate client row is needed.
+
+- insert:
+    - id: update-check-plus
+      name: dsh-update-check-plus
